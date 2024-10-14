@@ -1,6 +1,6 @@
 // // // Your code here
 // // fetch all posts
-document.addEventListener("DOMContentLoaded", () => {
+
 fetch('http://localhost:3000/films')
   .then((response) => response.json())
   .then((data) => {
@@ -8,12 +8,12 @@ fetch('http://localhost:3000/films')
     for(movies of data){
       movie_titles.innerHTML += `
       <div>
-      <li onclick="fetch_data(${movies.id})">${movies.title}</li>
+      <li  class ="film item" onclick="fetch_data(${movies.id})">${movies.title}</li>
       
       <button onclick="delete_movies(${movies.id})"class="btn">Del</button>
       </div>
       `
-
+    }})
       function delete_movies(id){
         fetch(`http://localhost:3000/films/${id}`,{
           method: 'DELETE',
@@ -24,12 +24,7 @@ fetch('http://localhost:3000/films')
         })
      alert('Deleted successfully');
        
-     }}})
-
-     
-    
-    
-
+     }
 
 // fetch default
   fetch(`http://localhost:3000/films/1`,{
@@ -49,7 +44,7 @@ fetch('http://localhost:3000/films')
       tickets_remaining.innerHTML = `[ ${data.capacity-data.ticket-sold}]`
       
   })
-function fetchdata(id){
+function fetch_data (id){
    fetch(`http://localhost:3000/films/${id}`,{
      method: 'GET',
    })
@@ -79,7 +74,7 @@ function fetchdata(id){
 
  }
  })
- })
+
 
 
 
