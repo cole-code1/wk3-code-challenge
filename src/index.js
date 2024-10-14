@@ -32,10 +32,7 @@ fetch('http://localhost:3000/films')
   })
  .then((response) => response.json())
  .then((data) => {
-   document.getElementById("poster").innerHTML = 
-   `<img 
-   src="${data.poster}"
-   alt="[MOVIE TITLE]"/>`
+   document.getElementById("poster").src = data.poster
       document.getElementById('title').innerHTML =` ${data.title}`
       document.getElementById('runtime').innerHTML = ` ${data.runtime}minutes`
       document.getElementById('film-info').innerHTML = ` ${data.film-info}`
@@ -50,10 +47,7 @@ function fetch_data (id){
    })
   .then((response) => response.json())
   .then((data) => {
-    document.getElementById("poster").innerHTML = 
-    `<img 
-    src="${data.poster}"
-    alt="[MOVIE TITLE]"/>`
+    document.getElementById("poster").src= data.poster
        document.getElementById('title').innerHTML =`${data.title}`
        document.getElementById('runtime').innerHTML = `${data.runtime}minutes`
        document.getElementById('film-info').innerHTML = `${data.film-info}`
